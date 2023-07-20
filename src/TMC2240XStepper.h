@@ -97,6 +97,7 @@ class TMC2240Stepper {
 		void diss2g(bool) ;
 		void diss2vs(bool);
 		void toff(uint8_t);
+		uint8_t toff();
 		/*r*/
 		uint32_t CHOPCONF();
 		uint8_t hstrt();

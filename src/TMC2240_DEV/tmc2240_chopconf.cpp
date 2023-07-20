@@ -2,8 +2,9 @@
 #include "TMC2240XStepper.h"
 
 #define GET_REG(SETTING) TMC2240_n::CHOPCONF_t r{0}; r.sr = CHOPCONF(); return r.SETTING
-
 #define SET_REG(SETTING) CHOPCONF_register.SETTING = B; write(CHOPCONF_register.address, CHOPCONF_register.sr)
+
+#define GET_REG_2240(SETTING) return CHOPCONF_register.SETTING;
 
 uint32_t TMC2240Stepper::CHOPCONF() { return CHOPCONF_register.sr; }
 void TMC2240Stepper::CHOPCONF(uint32_t data) {
@@ -15,6 +16,9 @@ void TMC2240Stepper::toff(uint8_t B) 	{
 	SET_REG(toff);
 	if (B>0) _savedToff = B;
 }
+
+
+
 void TMC2240Stepper::hstrt(uint8_t B) 	{ SET_REG(hstrt); 	}
 void TMC2240Stepper::hend(uint8_t B) 	{ SET_REG(hend);	}
 void TMC2240Stepper::fd3(bool B) 	{ SET_REG(fd3);	}
@@ -30,6 +34,8 @@ void TMC2240Stepper::dedge(bool B) 	    { SET_REG(dedge);	}
 void TMC2240Stepper::diss2g(bool B) 	{ SET_REG(diss2g);	}
 void TMC2240Stepper::diss2vs(bool B) 	{ SET_REG(diss2vs);	}
 
+
+uint8_t TMC2240Stepper::toff()  { GET_REG_2240(toff); }
 uint8_t TMC2240Stepper::hstrt() 	{ GET_REG(hstrt); 	}
 uint8_t TMC2240Stepper::hend() 	{ GET_REG(hend);	}
 bool TMC2240Stepper::fd3() 	{ GET_REG(fd3);	}
