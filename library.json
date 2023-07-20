@@ -1,0 +1,13 @@
+{
+	"name": "TMC2240-LIB",
+	"version": "1.0.0",
+	"keywords": "TMC, Trinamic, stepper, driver, SPI, TMC2240",
+	"description": "Arduino library for configuring Trinamic TMC2240 stepper drivers.",
+	"repository":
+	{
+		"type": "git",
+		"url": "https://github.com/makerbase-mks/TMC2240-LIB.git"
+	},
+	"frameworks": "arduino",
+	"platforms": "*"
+}
